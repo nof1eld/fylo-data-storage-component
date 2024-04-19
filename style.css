@@ -41,7 +41,7 @@ picture img {
   background-color: transparent;
   width: 46rem;
   height: 15vh;
-  transform: translateY(-65%);
+  transform: translateY(-11vh);
   margin: 0 auto;
   z-index: 1;
   display: grid;
@@ -264,14 +264,15 @@ ul > li:hover {
 }
 @keyframes slideInX {
   0% {
-    opacity: 0;
-    transform: translateX(30vw);
+    opacity: 1;
+    transform: translateX(50vw);
   }
 }
 
 .bg-head-picture {
   animation: slideInX 1s ease-in-out forwards;
 }
+
 /*responsivity*/
 @media only screen and (max-width: 768px) {
   .container {
@@ -279,7 +280,7 @@ ul > li:hover {
     max-width: 20rem;
     gap: 1.3rem;
     height: 21rem;
-    transform: translateY(5%);
+    transform: translateY(-5vh);
   }
 
   body {
@@ -316,14 +317,7 @@ ul > li:hover {
     top: 40%;
   }
 }
-@media only screen and (min-height: 527px) {
-  .container {
-    transform: translateY(-20%);
-  }
-  .left-storage {
-    top: 30%;
-  }
-}
+
 @media only screen and (min-width: 768px) {
   .left-storage {
     bottom: 8.8rem;
