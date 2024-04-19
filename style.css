@@ -39,10 +39,9 @@ picture img {
 }
 .container {
   background-color: transparent;
-  width: 100%;
-  max-width: 70vw;
+  width: 46rem;
   height: 15vh;
-  transform: translateY(-50%);
+  transform: translateY(-65%);
   margin: 0 auto;
   z-index: 1;
   display: grid;
@@ -165,6 +164,7 @@ ul > li:hover {
 #left-storage > sub {
   align-self: center;
   color: var(--color-neutral-grayish-blue);
+  font-size: 12px;
 }
 #left-storage > strong {
   font-size: 30px;
@@ -179,7 +179,7 @@ ul > li:hover {
   }
 }
 /* responsive for smaller screens */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .container {
     grid-template-columns: 1fr;
     max-width: 20rem;
@@ -227,10 +227,44 @@ ul > li:hover {
     transform: translateY(-20%);
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
   .left-storage {
-    bottom: 100%;
-    top: 0%;
-    left: 10%;
+    bottom: 8.5rem;
+    left: 30%;
+    align-self: end;
+    width: 10rem;
+    border-bottom-right-radius: 0px;
+  }
+
+  .left-storage::after {
+    content: "";
+    position: absolute;
+    top: 85%;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 25px solid rgba(0, 0, 0, 0);
+    border-right: 25px solid #fff;
+  }
+}
+
+@property --num {
+  syntax: "<integer>";
+  initial-value: 185;
+  inherits: false;
+}
+#gb {
+  animation: count 1.5s;
+  counter-reset: num var(--num);
+}
+#gb::after {
+  content: counter(num);
+}
+@keyframes count {
+  0% {
+    --num: 0;
+  }
+  100% {
+    --num: 185;
   }
 }
