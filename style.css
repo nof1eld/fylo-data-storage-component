@@ -252,6 +252,26 @@ ul > li:hover {
 .left-storage {
   animation: floating 3s infinite;
 }
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+
+.container {
+  animation: slideIn 1s ease-in-out forwards;
+}
+@keyframes slideInX {
+  0% {
+    opacity: 0;
+    transform: translateX(30vw);
+  }
+}
+
+.bg-head-picture {
+  animation: slideInX 1s ease-in-out forwards;
+}
 /*responsivity*/
 @media only screen and (max-width: 768px) {
   .container {
@@ -323,24 +343,4 @@ ul > li:hover {
     border-bottom: 25px solid rgba(0, 0, 0, 0);
     border-right: 25px solid #fff;
   }
-}
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-}
-
-.container {
-  animation: slideIn 1s ease-in-out forwards;
-}
-@keyframes slideInX {
-  0% {
-    opacity: 0;
-    transform: translateX(30vw);
-  }
-}
-
-.bg-head-picture {
-  animation: slideInX 1s ease-in-out forwards;
 }
