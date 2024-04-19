@@ -169,7 +169,7 @@ ul > li:hover {
 #left-storage > strong {
   font-size: 30px;
 }
-/* loading bar animation */
+/* animation */
 @keyframes loading {
   0% {
     width: 0;
@@ -178,12 +178,86 @@ ul > li:hover {
     width: 81.5%;
   }
 }
-/* responsive for smaller screens */
+
+@property --num {
+  syntax: "<integer>";
+  initial-value: 185;
+  inherits: false;
+}
+#gb {
+  animation: count 1.5s;
+  counter-reset: num var(--num);
+}
+#gb::after {
+  content: counter(num);
+}
+@keyframes count {
+  0% {
+    --num: 1000;
+  }
+  100% {
+    --num: 185;
+  }
+}
+@property --num2 {
+  syntax: "<integer>";
+  initial-value: 815;
+  inherits: false;
+}
+#used-gb {
+  animation: count-used 1.5s;
+  counter-reset: num2 var(--num2);
+}
+#used-gb::before {
+  content: counter(num2);
+}
+@keyframes count-used {
+  0% {
+    --num2: 0;
+  }
+  100% {
+    --num2: 815;
+  }
+}
+
+.column-two > p::after {
+  content: "_";
+  font-weight: var(--font-weight-bold);
+  font-size: 25px;
+  width: 0px;
+  height: 2px;
+  background: var(--color-neutral-very-dark-blue);
+  display: inline-block;
+  animation: cursor-blink 1.5s steps(2) infinite;
+}
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+}
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+.left-storage {
+  animation: floating 3s infinite;
+}
+/*responsivity*/
 @media only screen and (max-width: 768px) {
   .container {
     grid-template-columns: 1fr;
     max-width: 20rem;
-    gap: 0.5rem;
+    gap: 1.3rem;
     height: 21rem;
     transform: translateY(5%);
   }
@@ -226,11 +300,14 @@ ul > li:hover {
   .container {
     transform: translateY(-20%);
   }
+  .left-storage {
+    top: 30%;
+  }
 }
 @media only screen and (min-width: 768px) {
   .left-storage {
-    bottom: 8.5rem;
-    left: 30%;
+    bottom: 8.8rem;
+    left: 27%;
     align-self: end;
     width: 10rem;
     border-bottom-right-radius: 0px;
@@ -245,26 +322,5 @@ ul > li:hover {
     height: 0;
     border-bottom: 25px solid rgba(0, 0, 0, 0);
     border-right: 25px solid #fff;
-  }
-}
-
-@property --num {
-  syntax: "<integer>";
-  initial-value: 185;
-  inherits: false;
-}
-#gb {
-  animation: count 1.5s;
-  counter-reset: num var(--num);
-}
-#gb::after {
-  content: counter(num);
-}
-@keyframes count {
-  0% {
-    --num: 0;
-  }
-  100% {
-    --num: 185;
   }
 }
