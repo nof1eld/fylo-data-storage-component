@@ -324,3 +324,23 @@ ul > li:hover {
     border-right: 25px solid #fff;
   }
 }
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+
+.container {
+  animation: slideIn 1s ease-in-out forwards;
+}
+@keyframes slideInX {
+  0% {
+    opacity: 0;
+    transform: translateX(30vw);
+  }
+}
+
+.bg-head-picture {
+  animation: slideInX 1s ease-in-out forwards;
+}
